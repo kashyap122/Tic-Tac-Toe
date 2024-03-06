@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap')
+    </style>
+</head>
+
+<body class="justForColor" onload="startTicTacToe()">
+    <div class="navBar">
+        Tic Tac Toe
+    </div>
+    <div class="mainMain">
+        <div class="player1">
+            <li id="nameOfP1"></li>
+            <hr>
+            <li>X</li>
+        </div>
+        <div class="player2">
+            <li id="nameOfP2"></li>
+            <hr>
+            <li>O</li>
+        </div>
+        <div class="main">
+            <button data-cell-index="1" class="boardCell pinkGrid"></button>
+            <button data-cell-index="2" class="boardCell darkPinkGrid"></button>
+            <button data-cell-index="3" class="boardCell pinkGrid"></button>
+            <button data-cell-index="4" class="boardCell darkPinkGrid"></button>
+            <button data-cell-index="5" class="boardCell pinkGrid"></button>
+            <button data-cell-index="6" class="boardCell darkPinkGrid"></button>
+            <button data-cell-index="7" class="boardCell pinkGrid"></button>
+            <button data-cell-index="8" class="boardCell darkPinkGrid"></button>
+            <button data-cell-index="9" class="boardCell pinkGrid"></button>
+        </div>
+        <div class="timer" onload="">
+            <li>Timer</li>
+            <li id="gameTimer"></li>
+        </div>
+        <div class="tttButtons">
+            <button type="" class="startBtn resetButton" id="newGameBtn" onclick="newGame()">Reset</button>
+            <button type="" class="startBtn exitButton" id="exitGameBtn" onclick="exitGame()">Exit</button>
+        </div>
+    </div>
+    <div class="popup hide">
+        <button type="" class="popup__restart-btn startBtn resetButton" id="newGameBtn"
+            onclick="newGame()">Restart</button>
+        <p id="message">Sample Message</p>
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>

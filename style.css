@@ -1,0 +1,233 @@
+* {
+    font-family: "Space Grotesk", sans-serif;
+    color: #4c59aa;
+}
+
+body {
+    background-color: #131834;
+    background-size: 1300px 600px;
+    background-repeat: no-repeat;
+}
+
+.bgimg {
+    height: 440px;
+    width: 1264px;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+hr {
+    border: 1.5px solid #4c59aa;
+}
+
+.timer {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #1d1e3d;
+    width: 100px;
+    height: 60px;
+    font-weight: 800;
+    font-size: large;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.player1 {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #1d1e3d;
+    width: 150px;
+    height: 70px;
+    font-weight: 800;
+    font-size: large;
+    border-radius: 5px;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.player2 {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #1d1e3d;
+    width: 150px;
+    height: 70px;
+    font-weight: 800;
+    font-size: large;
+    border-radius: 5px;
+    position: absolute;
+    top: 150px;
+    right: 300px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.playerNamesMain {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    padding-top: 25px;
+    border-radius: 5px;
+    background-color: #1d1e3d;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input {
+    border: 3px solid #4c59aa;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.navBar {
+    text-align: center;
+    background-color: #1d1e3d;
+    color: #4c59aa;
+    width: 300px;
+    height: 50px;
+    margin: auto;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bolder;
+    padding-top: 8px;
+    font-size: 30px;
+}
+
+.copyRight {
+    text-align: center;
+    background-color: #1d1e3d;
+    width: 350px;
+    margin: auto;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #4c59aa;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-weight: 600;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1d1e3d;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tttButtons {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 80px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: #1d1e3d;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+.exitButton {
+    margin-left: 5px;
+}
+
+.startBtn,
+.boardCell {
+    margin: 5px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #fff;
+    background: #4c59aa;
+    line-height: 1.15;
+    font-size: 16px;
+}
+
+.gameStart {
+    margin-top: 25px;
+}
+
+.resetButton,
+.exitButton {
+    margin-top: 15px;
+}
+
+.popup {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 163px;
+    left: 517px;
+    background: #1d1e3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.popup p {
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    top: 5px;
+    color: #4c59aa;
+}
+
+.popup__restart-btn {
+    width: 120px;
+    height: 20px;
+    background: #4c59aa;
+    color: white;
+    padding-bottom: 35px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.popup__winner {
+    width: 100px;
+    height: 100px;
+    background: #1d1e3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.popup.hide {
+    display: none;
+}
