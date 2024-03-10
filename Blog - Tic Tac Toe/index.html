@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game Using Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Tic-Tac-Toe Game Using JavaScript</h1>
+    <h2>Introduction</h2>
+    <p>Tic-Tac-Toe is a classic game that has been enjoyed by people of all ages for generations. It is a simple game
+        that requires two players to take turns marking Xs and Os on a 3x3 grid, with the objective of getting three in
+        a row. The game is easy to learn but can become quite competitive once players start to master their strategies.
+    </p>
+
+    <p>In this blog post, we will go through the steps of building a Tic-Tac-Toe game in JavaScript, using HTML and CSS
+        to style the game board.</p>
+
+    <p>The sample video showing gameplay and working of the website</p>
+    <video src="Videos/Game.mp4" autoplay loop></video>
+
+    <h2>Step 1: Create the HTML Structure</h2>
+    <p>The first step is to set up the HTML structure for our game. We'll start with a form to input player names and a
+        button to start the game.</p>
+    <img src="/Images/Screenshot (285).png" alt="">
+    <div class="basics">
+        <p class="">Some Basics of HTML code, we used:</p>
+        <p class="">&lt;!DOCTYPE html&gt; - This declaration tells the browser what type of HTML we're using.</p>
+        <p>&lt;html lang="en"&gt; - This is the opening tag for the HTML document, with a language attribute set to
+            "en".
+        </p>
+        <p>&lt;head&gt; - This is where we put meta information about the page, such as the title, links to stylesheets,
+            and
+            scripts.</p>
+        <p>&lt;title&gt; - This page title will appear in the browser tab.</p>
+        <p>&lt;link rel="stylesheet" href="style.css"&gt; - This is a link to the external stylesheet that we will use
+            to
+            style the game.</p>
+        <p>&lt;body&gt; - This is where we put the visible content of the page.</p>
+        <p>&lt;script src="main.js"&gt;&lt;/script&gt; - This is a script tag that links to the main.js file where we
+            will
+            write our JavaScript code.</p>
+    </div>
+    <p>Here's a snippet of the HTML code:</p>
+    <div class="code1" style="font-family: monospace; white-space: pre-wrap;">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+        &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Tic Tac Toe&lt;/title&gt;
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/icon.png&quot; type=&quot;image/x-icon&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon-32x32.png&quot;
+        type=&quot;image/x-icon&quot;&gt;
+        &lt;style&gt;
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap')
+        &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;div class=&quot;navBar&quot;&gt;
+        Tic Tac Toe
+        &lt;/div&gt;
+        &lt;div class=&quot;playerNamesMain&quot;&gt;
+        &lt;div class=&quot;p1&quot;&gt;
+        &lt;label&gt;Player 1's Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; class=&quot;&quot; id=&quot;player1&quot;&gt;
+        &lt;/div&gt;
+        &lt;br&gt;
+        &lt;div class=&quot;p2&quot;&gt;
+        &lt;label&gt;Player 2's Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; class=&quot;&quot; id=&quot;player2&quot;&gt;
+        &lt;/div&gt;
+        &lt;button type=&quot;&quot; class=&quot;startBtn gameStart&quot;
+        onclick=&quot;startButton()&quot;&gt;Start&lt;/button&gt;
+
+        &lt;/div&gt;
+        &lt;div for=&quot;&quot; class=&quot;copyRight&quot;&gt;
+        Made by Kashyap Chauhan @2024
+        &lt;/div&gt;
+        &lt;/body&gt;
+        &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+
+        &lt;/html&gt;
+    </div>
+    <p>In building a Tic-Tac-Toe game is to create the HTML structure for the game board. We will create a 3x3 grid
+        using the HTML table element.</p>
+    <img src="/Images/Screenshot (286).png" alt="">
+    <p>Here's a snippet of the HTML code of Tictactoe.html file:</p>
+    <div class="code2" style="font-family: monospace; white-space: pre-wrap;">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+
+        &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Tic Tac Toe&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+        &lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon-32x32.png&quot;
+        type=&quot;image/x-icon&quot;&gt;
+        &lt;style&gt;
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap')
+        &lt;/style&gt;
+        &lt;/head&gt;
+
+        &lt;body class=&quot;justForColor&quot; onload=&quot;startTicTacToe()&quot;&gt;
+        &lt;div class=&quot;navBar&quot;&gt;
+        Tic Tac Toe
+        &lt;/div&gt;
+        &lt;div class=&quot;mainMain&quot;&gt;
+        &lt;div class=&quot;player1&quot;&gt;
+        &lt;li id=&quot;nameOfP1&quot;&gt;&lt;/li&gt;
+        &lt;hr&gt;
+        &lt;li&gt;X&lt;/li&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;player2&quot;&gt;
+        &lt;li id=&quot;nameOfP2&quot;&gt;&lt;/li&gt;
+        &lt;hr&gt;
+        &lt;li&gt;O&lt;/li&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;main&quot;&gt;
+        &lt;button data-cell-index=&quot;1&quot; class=&quot;boardCell pinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;2&quot; class=&quot;boardCell darkPinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;3&quot; class=&quot;boardCell pinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;4&quot; class=&quot;boardCell darkPinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;5&quot; class=&quot;boardCell pinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;6&quot; class=&quot;boardCell darkPinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;7&quot; class=&quot;boardCell pinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;8&quot; class=&quot;boardCell darkPinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;button data-cell-index=&quot;9&quot; class=&quot;boardCell pinkGrid&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;timer&quot; onload=&quot;&quot;&gt;
+        &lt;li&gt;Time Left : &lt;span id=&quot;gameTimer&quot;&gt;&lt;/span&gt;&lt;/li&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;tttButtons&quot;&gt;
+        &lt;button type=&quot;&quot; class=&quot;startBtn resetButton&quot; id=&quot;newGameBtn&quot;
+        onclick=&quot;newGame()&quot;&gt;Reset&lt;/button&gt;
+        &lt;button type=&quot;&quot; class=&quot;startBtn exitButton&quot; id=&quot;exitGameBtn&quot;
+        onclick=&quot;exitGame()&quot;&gt;Exit&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;popup hide&quot;&gt;
+        &lt;button type=&quot;&quot; class=&quot;popup__restart-btn startBtn resetButton&quot; id=&quot;newGameBtn&quot;
+        onclick=&quot;newGame()&quot;&gt;Restart&lt;/button&gt;
+        &lt;p id=&quot;message&quot;&gt;Sample Message&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/body&gt;
+        &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+
+        &lt;/html&gt;
+
+    </div>
+    <div class="basics">
+        <h3>Player Information:</h3>
+
+        <p>You have two containers, player1 and player2, each displaying the name and symbol of a player.
+            Inside each container, there's an li element with the ID nameOfP1 or nameOfP2 to display the player's name.
+            Below the player's name, there's an hr element for visual separation.
+            Finally, there's an li element displaying the player's symbol ("X" or "O").
+        </p>
+        <h3>Game Board:
+        </h3>
+        <p>The game board is represented by a div with the class main.
+            Inside this div, there are nine buttons (button elements) representing the cells of the game board.
+            Each button has a data-cell-index attribute ranging from 1 to 9, which will be used to identify the position
+            of the cell on the board.
+        <h3>
+            Timer:
+        </h3>
+        </p>
+        <p>
+            You have a div with the class timer to display the game timer.
+            Inside this div, there's an li element showing the text "Time Left:", followed by a span element with the ID
+            gameTimer, which will display the actual time left during the game.</p>
+        <h3>
+            Control Buttons:
+        </h3>
+        <p>Below the game board, there's a set of buttons contained within a div with the class tttButtons.
+            You have a "Reset" button (button element) with the ID newGameBtn, which presumably resets the game when
+            clicked.
+            There's also an "Exit" button (button element) with the ID exitGameBtn, which might be intended to exit the
+            game.
+        </p>
+        <h3>
+            Popup Container:
+        </h3>
+        <p>
+            At the end of the HTML code, there's a div with the class popup, initially hidden with the class hide.
+            Inside this div, there's a "Restart" button (button element) with the class popup__restart-btn and the ID
+            newGameBtn.
+            There's also a p element with the ID message, which might display a message related to the game's outcome.
+        </p>
+    </div>
+    <h2>Step 2: Style the Game Board with CSS</h2>
+    <p>The CSS code is for a blog that includes a game of Tic Tac Toe. The code defines the basic styles for the web
+        page, including font, background color, and layout. It also defines the styles for the game board, cells, and
+        players' symbols. The code also includes styles for a popup that appears when the game is won, with a message
+        and a restart button. Finally, the code includes styles for a restart button outside the popup.</p>
+    <h2>Step 3: Add Interactivity with JavaScript</h2>
+    <p>Now that we have created the HTML structure and styled the game board with CSS, let's add some interactivity to
+        the game using JavaScript.</p>
+    <img src="/Images/Screenshot (287).png" alt="">
+    <p>JS Code</p>
+    <div class="code3" style="font-family: monospace; white-space: pre-wrap;">
+let player1NameInGame;
+let player2NameInGame;
+let timeLeft = 60;
+let timerInterval;
+let btnRef = document.querySelectorAll(".boardCell");
+let msgRef = document.getElementById("message");
+let popupRef = document.querySelector(".popup");
+let newgameBtn = document.querySelector(".popup__restart-btn");
+let restartBtn = document.querySelector(".game-restart-btn");
+let xTurn = true;
+let count = 0;
+
+function startButton() {
+    let playerName1 = document.getElementById("player1").value;
+    let playerName2 = document.getElementById("player2").value;
+
+    console.log(playerName1);   
+    console.log(playerName2);
+
+    if (playerName1 === "" || playerName2 === "") {
+        alert("Player names are required!");
+    } else {
+        window.location.href = "ticTacToe.html?player1=" + encodeURIComponent(playerName1) + "&player2=" + encodeURIComponent(playerName2);
+    }
+}
+
+function startTicTacToe() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const playerName1 = urlParams.get('player1');
+    const playerName2 = urlParams.get('player2');
+
+    console.log(playerName1);
+    console.log(playerName2);
+
+    player1NameInGame = document.getElementById("nameOfP1").innerHTML = playerName1;
+    player2NameInGame = document.getElementById("nameOfP2").innerHTML = playerName2;
+}
+
+function startTimer() {
+    timerInterval = setInterval(function () {
+        document.getElementById("gameTimer").textContent = timeLeft;
+        timeLeft--;
+        if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            alert("Time's up Game Over!");
+            newGame();
+        }
+    }, 1000);
+}
+startTimer();
+
+let winningPattern = [
+    [0, 1, 2],
+    [0, 3, 6],
+    [2, 5, 8],
+    [6, 7, 8],
+    [3, 4, 5],
+    [1, 4, 7],
+    [0, 4, 8],
+    [2, 4, 6],
+];
+
+const disableButtons = () => {
+    btnRef.forEach((element) => (element.disabled = true));
+    popupRef.classList.remove("hide");
+};
+
+const enableButtons = () => {
+    btnRef.forEach((element) => {
+        element.innerText = "";
+        element.disabled = false;
+    });
+    popupRef.classList.add("hide");
+};
+
+const winFunction = (letter) => {
+    disableButtons();
+    if (letter == "X") {
+        msgRef.innerHTML = player1NameInGame + " Wins";
+    } else {
+        msgRef.innerHTML = player2NameInGame + " Wins";
+    }
+};
+const drawFunction = () => {
+    disableButtons();
+    msgRef.innerHTML = "It's a Draw";
+};
+
+function newGame() {
+    count = 0;
+    timeLeft = 60;
+    document.getElementById("gameTimer").textContent = timeLeft;
+    enableButtons();
+    clearInterval(timerInterval);
+    startTimer();
+}
+
+function exitGame() {
+    window.location.href = "index.html";
+}
+
+const winChecker = () => {
+    for (let i of winningPattern) {
+        let [element1, element2, element3] = [
+            btnRef[i[0]].innerText,
+            btnRef[i[1]].innerText,
+            btnRef[i[2]].innerText,
+        ];
+
+        if (element1 != "" && element2 != "" && element3 != "" && element1 == element2 && element2 == element3) {
+            winFunction(element1);
+        }
+    }
+};
+
+btnRef.forEach((element) => {
+    element.style.height = "90px";
+    element.style.width = "90px";
+    element.style.color = "#1d1e3d";
+    element.style.fontSize = "30px";
+    element.style.fontWeight = "bold";
+
+    element.addEventListener("click", () => {
+        if (xTurn) {
+            xTurn = false;
+            element.innerText = "X";
+        } else {
+            xTurn = true;
+            element.innerText = "O";
+        }
+        element.disabled = true;
+        count++;
+        if (count == 9) {
+            drawFunction();
+        }
+        winChecker();
+    });
+});
+    </div>
+    <div class="basics">
+        <h3>Global Variables:</h3>
+        <p>
+            <strong>player1NameInGame</strong> and <strong>player2NameInGame</strong>: These variables store the names
+            of the players obtained from the URL parameters.<br>
+            <strong>timeLeft</strong>: Initialized to 60 seconds, represents the countdown timer for the game.<br>
+            <strong>timerInterval</strong>: Stores the interval ID for the timer.<br>
+            <strong>btnRef</strong>: Contains references to all the board cells (buttons) on the game board.<br>
+            <strong>msgRef</strong>: Refers to the element with the ID <code>message</code>, presumably used to display
+            game messages.<br>
+            <strong>popupRef</strong>: Refers to the popup element used to display game outcomes.<br>
+            <strong>newgameBtn</strong>: Refers to the "Restart" button inside the popup.<br>
+            <strong>restartBtn</strong>: Refers to the "Reset" button outside the popup.<br>
+            <strong>xTurn</strong>: Indicates whose turn it is, initialized to <code>true</code> for player 1's
+            turn.<br>
+            <strong>count</strong>: Keeps track of the number of moves played.
+        </p>
+
+        <h3><code>startButton()</code> Function:</h3>
+        <p>
+            Retrieves player names from input fields.<br>
+            Checks if both player names are provided.<br>
+            If names are provided, redirects to the game page with player names encoded in the URL.
+        </p>
+
+        <h3><code>startTicTacToe()</code> Function:</h3>
+        <p>
+            Parses player names from the URL parameters.<br>
+            Sets the player names in the respective containers on the game page.
+        </p>
+
+        <h3><code>startTimer()</code> Function:</h3>
+        <p>
+            Initiates a countdown timer.<br>
+            Updates the timer display every second.<br>
+            Stops the timer and triggers an alert when time runs out.
+        </p>
+
+        <h3><code>winningPattern</code> Array:</h3>
+        <p>
+            Contains arrays representing the winning patterns on the Tic Tac Toe board.
+        </p>
+
+        <h3>Helper Functions:</h3>
+        <p>
+            <code>disableButtons()</code>: Disables all buttons on the game board and shows the popup.<br>
+            <code>enableButtons()</code>: Enables all buttons on the game board and hides the popup.<br>
+            <code>winFunction()</code>: Displays a message with the winning player's name.<br>
+            <code>drawFunction()</code>: Displays a message indicating a draw.<br>
+            <code>newGame()</code>: Resets the game by clearing the board, resetting the timer, enabling buttons, and
+            starting a new timer.<br>
+            <code>exitGame()</code>: Redirects to the index page.
+        </p>
+
+        <h3><code>winChecker()</code> Function:</h3>
+        <p>
+            Checks for winning patterns on the board.<br>
+            If a winning pattern is found, calls <code>winFunction()</code> with the winning symbol.
+        </p>
+
+        <h3>Button Event Listeners:</h3>
+        <p>
+            Iterates over each button on the board.<br>
+            Adds a click event listener to each button.<br>
+            Updates the button's appearance and text based on whose turn it is.<br>
+            Increments the move count and checks for a win or draw after each move.
+        </p>
+
+    </div>
+    <h2>Explore the Source Code on GitHub</h2>
+    <a href="https://github.com/kashyap122/Tic-Tac-Toe.git">Tic-Tac-Toe Game using JavaScript</a>
+</body>
+
+</html>

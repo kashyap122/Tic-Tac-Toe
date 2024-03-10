@@ -1,6 +1,6 @@
 let player1NameInGame;
 let player2NameInGame;
-let timeLeft = 30;
+let timeLeft = 60;
 let timerInterval;
 let btnRef = document.querySelectorAll(".boardCell");
 let msgRef = document.getElementById("message");
@@ -14,7 +14,7 @@ function startButton() {
     let playerName1 = document.getElementById("player1").value;
     let playerName2 = document.getElementById("player2").value;
 
-    console.log(playerName1);
+    console.log(playerName1);   
     console.log(playerName2);
 
     if (playerName1 === "" || playerName2 === "") {
@@ -88,7 +88,7 @@ const drawFunction = () => {
 
 function newGame() {
     count = 0;
-    timeLeft = 30;
+    timeLeft = 60;
     document.getElementById("gameTimer").textContent = timeLeft;
     enableButtons();
     clearInterval(timerInterval);

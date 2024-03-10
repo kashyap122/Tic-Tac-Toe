@@ -1,0 +1,43 @@
+video{
+    height: 400px;
+    width: 890px;
+    margin: 0;
+    padding: 0  ;
+}
+img{
+    height: 430px;
+    width: 900px;
+}
+.code1{
+    background-color: #eceffa;
+    height: 650px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 700px;
+}
+.code2{
+    background-color: #eceffa;
+    height: 950px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 700px;
+}
+.code3{
+    background-color: #eceffa;
+    height: 217 0px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 700px;
+}
+.basics{
+    color: rgb(111, 111, 111);
+}
+p{
+    font-size: large;
+    width: 700px; 
+}
+a{
+    font-size: large;
+    text-decoration: none;
+    color: blue;
+}
